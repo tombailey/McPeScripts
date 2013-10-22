@@ -1,4 +1,4 @@
-// TreeHugger mod by tombailey94
+// TreeChopper mod by tombailey94
 // version 0.0.1
 
 var axeIds = {258,271,275,279,286};
