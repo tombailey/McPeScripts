@@ -5,7 +5,7 @@ var blockDataValues = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,141,15,16,17,18,20,21,22,
 
 function useItem(x,y,z,itemId,blockId,side) {
 	if(itemId == 280) { //if the item used to touch a block is "the wand"
-		var rnd = Math.floor(Math.random()*(blockDataValues.length+1)); //random number between 0 and the length of blockIds array
+		var rnd = Math.floor(Math.random()*(blockDataValues.length)); //random number between 0 and the length of blockIds array
 		setTile(x,y,z,blockDataValues[rnd],0); //use the random number as an index for the block id array and set the tile to the block id 
 	}
 	preventDefault(); //prevent default stops interface opening if the block created is a crafting table, etc
