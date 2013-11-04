@@ -1,4 +1,4 @@
-// MagicWand mod by tombailey94
+// MagicWand mod by tombailey94; with credit to PEMapModder for correcting my silly unused variable and optional parameter mistakes (https://github.com/pemapmodder)
 // version 0.0.1
 
 var quantity = 64; //the amount of blocks to give the player
