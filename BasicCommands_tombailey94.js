@@ -1,8 +1,6 @@
 // Basic Commands mod by tombailey94; uses the DayAndNight as well as SwtichGamemode mod also made by myself :)
 // version 0.0.1
 function procCmd(cmd) {
-	var commandElements = cmd.split(" ");
-	
 	//commands without parameters. e.g. '/day'
 	//DayAndNight commands
 	if(cmd == "day") { //if command was /day
@@ -22,9 +20,7 @@ function procCmd(cmd) {
 	}
 	//heal command
 	else if(cmd == "heal") { //if command was /heal
-		setPlayerHealth(20); //heal the player; 20 half hearts or 10 whole hearts
+		Player.setHealth(20); //heal the player; 20 half hearts or 10 whole hearts
 		clientMessage("Health set to 10 hearts.");
 	}
-	//commands with parameters. e.g. '/spawn chicken'
-	
 }
