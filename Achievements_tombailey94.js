@@ -42,7 +42,7 @@ function leaveGame() { //exit world
 
 function procCmd(cmd) {
 	var commandElements = cmd.split(" ");
-	if(commandElements[0] == "achievements") { //if command was /day
+	if(commandElements[0] == "achievements") { //if command was /achievements // suggestion: shorten it
 		if(commandElements.length==1) {
 			for(var i=0;i!=achvs.length-1;i++){
 				if(achvs[i]) { //achievement unlocked
