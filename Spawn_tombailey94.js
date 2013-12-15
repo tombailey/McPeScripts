@@ -1,9 +1,7 @@
 // Spawn mod by tombailey94
 // version 0.0.1
 function procCmd(cmd) {
-	clientMessage(cmd);
 	var commandElements = cmd.split(" ");
-	clientMessage(commandElements);
 	if(commandElements[0] == "spawn") {
 		if(commandElements.length == 1) {
 			clientMessage("You forgot say which mob you want to spawn.");
