@@ -26,7 +26,7 @@ function useItem(x,y,z,itemId,blockId,side) {
 	}
 }
 
-function newLevel() { //load world
+/*function newLevel() { //load world
 	for(var i=0;i<achvs.length;i++){
 		achvs[i] = ModPE.readData("achievement" + i);
 	}
@@ -36,7 +36,7 @@ function leaveGame() { //exit world
 	for(var i=0;i<achvs.length;i++){
 		ModPE.saveData("achievement" + i, achvs[i]);
 	}
-}
+}*/
 
 function procCmd(cmd) {
 	var commandElements = cmd.split(" ");
@@ -54,6 +54,7 @@ function procCmd(cmd) {
 				for(var i=0;i<achvs.length;i++){
 					achvs[i] == false;
 				}
+				clientMessage("Achievements reset.");
 			} else {
 				clientMessage("Your parameters were wrong. Achievements command only allows for 'reset' parameter.");
 			}
