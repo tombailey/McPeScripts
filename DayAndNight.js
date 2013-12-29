@@ -6,4 +6,3 @@ function procCmd(cmd) {
 	} else if (cmd == "night") { //if command was /night
 		Level.setTime(14000); //change time to night
 	}
-}
