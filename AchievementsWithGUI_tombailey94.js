@@ -1,6 +1,8 @@
 //Achievements mod by tombailey94
 // version 0.0.2
 
+/* experimental; requires "wood.png" file in "games/com.mojang/" folder for displaying achievement (not uploaded as copyright Mojang) */
+
 var imgview;
 var ctx;
 var simpleGUI;
