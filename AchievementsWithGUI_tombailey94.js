@@ -6,15 +6,31 @@
 var imgview;
 var ctx;
 var simpleGUI;
+var imgs = ["wood","bed","nether","diamonds"];
 var GUICounter = 0; //counter that will be set to 200 later. It will then decrease until it is 0 and the GUI is hidden.
 
 var achvs = [false,false,false,false];
-var achvNames = ["Getting Wood","Bedtime already?","Into The Nether","DIAMONDS!"];
+var achvNames = ["Getting Wood","Bedtime Already?","Into The Nether","DIAMONDS!"];
 
 function unlockAchv(intIndex){
 	achvs[intIndex] = true;
 	clientMessage(achvNames[intIndex] + " unlocked.");
 	GUICounter = 200;
+	ctx.runOnUiThread(new java.lang.Runnable({ run: function() {
+		try{
+			simpleGUI = new android.widget.PopupWindow();
+			var layout = new android.widget.RelativeLayout(ctx);
+			imgview = new android.widget.ImageView(ctx);
+			imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(android.os.Environment.getExternalStorageDirectory() + "/games/com.mojang/" + imgs[intIndex] + ".png"));
+			layout.addView(imgview);
+			simpleGUI.setContentView(layout);
+			simpleGUI.setWidth(555);
+			simpleGUI.setHeight(109);
+			simpleGUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
+		}catch(err){
+			print("Error: "+err);
+		}
+	} }));
 }
 
 function destroyBlock(x, y, z, side) {
@@ -81,25 +97,7 @@ function procCmd(cmd) {
 
 function modTick() {
 	if(ctx!=null) {
-		if (GUICounter==200) {
-			//initially display the image
-			ctx.runOnUiThread(new java.lang.Runnable({ run: function() {
-				try{
-					simpleGUI = new android.widget.PopupWindow();
-					var layout = new android.widget.RelativeLayout(ctx);
-					imgview = new android.widget.ImageView(ctx);
-					imgview.setImageBitmap(android.graphics.BitmapFactory.decodeFile(android.os.Environment.getExternalStorageDirectory()+"/games/com.mojang/wood.png"));
-					layout.addView(imgview);
-					simpleGUI.setContentView(layout);
-					simpleGUI.setWidth(555);
-					simpleGUI.setHeight(109);
-					simpleGUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-				}catch(err){
-					print("Error: "+err);
-				}
-			} }));
-			GUICounter -= 1; //decrement counter
-		} else if(GUICounter>0) {
+		if(GUICounter>0) {
 			GUICounter -= 1; //decrement counter
 		} else {
 			ctx.runOnUiThread(new java.lang.Runnable({ run: function() {
