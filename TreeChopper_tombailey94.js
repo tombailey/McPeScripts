@@ -20,3 +20,17 @@ function useItem(x,y,z,itemId,blockId,side) {
 		preventDefault();
 	}
 }
+
+function destroyBlock(x, y, z, side) {
+	var tile = getTile(x, y, z);
+	if(tile == woodId) { //check if original block touched was wood
+		Level.destroyBlock(x, y, z, true); //destroys and drops original wood block
+		for(var i = y+1;i < 128;i++) { //loop to look for wood blocks above original block (y+1 as original block has been destroyed at this point)
+			if(getTile(x, i, z) == woodId) { //if the block is a wood block
+				Level.destroyBlock(x, i, z, true); //destroys and drops wood block
+			} else {
+				break;
+			}
+		}
+	}
+}
