@@ -13,7 +13,7 @@ function procCmd(cmd) {
 	//SwitchGamemode commands
 	else if(cmd == "survival") { //if command was /survival
 		Level.setGameMode(0); //change to survival
-		clientMessage("Gamemode set to survival.");
+		clientMessage("Gamemode Herobrine mode.");
 	} else if (cmd == "creative") { //if command was /creative
 		Level.setGameMode(1); //change to creative
 		clientMessage("Gamemode set to creative.");
