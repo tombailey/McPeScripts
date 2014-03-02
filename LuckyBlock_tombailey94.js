@@ -10,15 +10,15 @@ function useItem(x,y,z,itemId,blockId,side) {
 		} else if(rnd == 2) {
 			Player.setHealth(0); //kills player
 		} else if(rnd == 3) {
-			Level.dropItem(x,y,z,0,306,1,0); //drop 3 diamonds
-			Level.dropItem(x,y,z,0,307,1,0); //drop 3 diamonds
-			Level.dropItem(x,y,z,0,308,1,0); //drop 3 diamonds
-			Level.dropItem(x,y,z,0,309,1,0); //drop 3 diamonds
+			Level.dropItem(x,y,z,0,306,1,0); //drops iron armour
+			Level.dropItem(x,y,z,0,307,1,0);
+			Level.dropItem(x,y,z,0,308,1,0);
+			Level.dropItem(x,y,z,0,309,1,0);
 		} else if(rnd == 4) {
 			Level.spawnMob(x,y,z,10,"mob/chicken.png"); //spawns a chicken
 		} else if(rnd == 5) {
-			Level.spawnMob(x,y,z,11,"mob/cow.png"); //spawns a chicken
+			Level.spawnMob(x,y,z,11,"mob/cow.png"); //spawns a cow
 		}
-		Level.destroyBlock(x,y,z,false);
+		Level.destroyBlock(x,y,z,false); //destroy the gold block
 	}
 }
