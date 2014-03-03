@@ -1,4 +1,4 @@
-0// MineValue mod by tombailey94
+// MineValue mod by tombailey94
 // version 0.0.1
 
 var wand = 280; //"the wand", data value for sticks
