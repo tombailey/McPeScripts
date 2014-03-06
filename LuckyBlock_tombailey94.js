@@ -1,3 +1,6 @@
+//LuckyBlock mod by tombailey94; with credit to PlayerInDistress (http://www.minecraftforum.net/topic/2031111-164-lucky-block-drops-items-spawns-mobs-structures-and-more/) and NOAHZ (http://www.minecraftforum.net/topic/2174428-noahzdarkdiaminers-modscripts-new-darkdiamondminers-mods/)
+// version 0.0.1
+
 var goldId = 41;
 
 function destroyBlock(x, y, z, side) {
@@ -87,7 +90,7 @@ function destroyBlock(x, y, z, side) {
 			var playerY = getPlayerY();
 			var playerZ = getPlayerZ();
 			
-			if (rnd == 0) { //creates a jail type structure and spawns falling spawn above the players head
+			if (rnd == 0) { //creates a jail type structure (with iron bars) and spawns falling spawn above the players head
 				
 				setTile(playerX+1, playerY-1, playerZ, 101); //front, back and sides
 				setTile(playerX+1, playerY, playerZ, 101);
@@ -107,12 +110,12 @@ function destroyBlock(x, y, z, side) {
 				setTile(playerX-1, playerY-1, playerZ-1, 101); 
 				setTile(playerX-1, playerY, playerZ-1, 101);
 				
-				setTile(playerX, playerY+50, playerZ, 12);
+				setTile(playerX, playerY+50, playerZ, 12); //dat sand doe
 				setTile(playerX, playerY+51, playerZ, 12);
 				
 				clientMessage("Look up!");
 			
-			} else {
+			} else { //sandstone structure
 				setTile(playerX+2, playerY, playerZ-2, 24);
 				setTile(playerX-2, playerY, playerZ+2, 24);
 				setTile(playerX-2, playerY, playerZ-2, 24);
@@ -162,17 +165,14 @@ function destroyBlock(x, y, z, side) {
 				setTile(playerX+1, playerY-2, playerZ, 24);
 				
 				
-				setTile(playerX+1, playerY-1, playerZ-1, 41); //gold
-				setTile(playerX-1, playerY-1, playerZ+1, 41);
-				setTile(playerX-1, playerY-1, playerZ-1, 41);
-				setTile(playerX+1, playerY-1, playerZ+1, 41);
+				setTile(playerX+1, playerY-1, playerZ-1, goldId);
+				setTile(playerX-1, playerY-1, playerZ+1, goldId);
+				setTile(playerX-1, playerY-1, playerZ-1, goldId);
+				setTile(playerX+1, playerY-1, playerZ+1, goldId);
 				
 				
 			}
-		/*} else {
-			rnd = Math.floor(Math.random()*(9)+1); //random number between 1 and 10
-			Level.explode(x,y,z,rnd);
-		}*/	
+		}
 		
 		Level.destroyBlock(x,y,z,false); //destroy the gold block
 	}
