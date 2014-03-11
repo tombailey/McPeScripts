@@ -1,10 +1,5 @@
-// MidasTouch mod by tombailey94, golden apple added by PEMapModder
-// version 0.1.0 Golden Apple!
-
-var goldAppDef = false;
+// MidasTouch mod by tombailey94
 function newLevel() {
-	if(!goldAppDef)
-		ModPE.setFoodItem(392, "Golden apple"); // you handle the texture things
 	clientMessage("Warning: all blocks you touch or walk near will turn to gold!");
 }
 
