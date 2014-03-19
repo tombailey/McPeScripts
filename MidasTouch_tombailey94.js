@@ -1,6 +1,6 @@
 // MidasTouch mod by tombailey94
 function newLevel() {
-	clientMessage("Warning: all blocks you touch or walk near will turn to gold!");
+	clientMessage("Warning: all blocks you touch or walk near will turn to dimonds!");
 }
 
 function modTick() {
