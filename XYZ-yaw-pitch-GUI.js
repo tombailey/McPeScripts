@@ -7,7 +7,7 @@ function getXYZ() {
 		ctx.runOnUiThread(new java.lang.Runnable({ run: function() {
 			try{
 				if(textview != null) {
-					textview.setText("X: " + Math.round(Player.getX()) + " , Y: " + Math.round(Player.getY()) + " , Z: " + Math.round(Player.getZ()));
+					textview.setText("X: " + Math.round(Player.getX()) + " , Y: " + Math.round(Player.getY()) + " , Z: " + Math.round(Player.getZ()) + "\nYaw: " + Math.round(Player.getYaw()) + ", Pitch: " + Math.round(Player.getPitch()));
 				}
 			}catch(err){
 				//print("Error: "+err); //will cause spam of dialogue boxes because of modTick
