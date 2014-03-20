@@ -24,7 +24,6 @@ function modTick() {
 			
 			if (oldXYZ[0] == newXYZ[0] && oldXYZ[1] == newXYZ[1] && oldXYZ[2] == newXYZ[2]) { //arrow hasn't moved
 				Entities.splice(i,1); //removes the entity as it no longer needs to be tracked
-				Entity.setHealth(entity,0);
 				Level.explode(Entity.getX(entity),Entity.getY(entity),Entity.getZ(entity),5);
 			} else { //arrow has moved; update position
 				Entities[i][1] = newXYZ; //oldXYZ becomes the new XYZ
