@@ -3,6 +3,10 @@
 
 var goldId = 41;
 
+function newLevel() {
+	ModPE.overrideTexture("images/terrain-atlas.tga","http://www.tombailey.me/projects/modpe/luckyblocks.tga");
+}
+
 function destroyBlock(x, y, z, side) {
 	var blockId = getTile(x,y,z);
 	
