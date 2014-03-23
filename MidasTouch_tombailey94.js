@@ -84,7 +84,7 @@ try{
 		br.close();
 		return;
 	}
-	var osw = new java.io.OutputStreamWriter(new java.FileOutputStream(file)); // TODO
+	var osw = new java.io.OutputStreamWriter(new java.FileOutputStream(file));
 	osw.write(new java.lang.String("midas-touch-block-id=41\n"));
 	osw.close();
 }catch(e){
