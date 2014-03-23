@@ -1,7 +1,7 @@
 // MidasTouch mod by tombailey94
 // version 0.0.1
 
-var blockId = 41;
+var blockId = 79;
 
 function procCmd(command) {
 	command = command.split(" ");
@@ -12,7 +12,7 @@ function procCmd(command) {
 }
 
 function newLevel() {
-	clientMessage("Warning: all blocks you touch or walk near will turn to gold!");
+	clientMessage("Warning: all blocks you touch or walk near will turn to ice!");
 }
 
 function modTick() {
