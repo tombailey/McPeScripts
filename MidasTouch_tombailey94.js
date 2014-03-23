@@ -1,7 +1,9 @@
 // MidasTouch mod by tombailey94
 // version 0.0.1
 
-var blockId = 41;
+var blockId;
+
+init();
 
 function procCmd(command) {
 	command = command.split(" ");
@@ -63,4 +65,26 @@ function modTick() {
 
 function useItem(x,y,z,itemId,blockId,side) {
 	setTile(x,y,z,blockId,0);
+}
+
+function init(){
+try{
+	var file = new java.io.File(android.os.Environment.getExternalStorageDirectory().getAbsolutePath() + "tombailry scripts/Midastouch/";
+	file.mkdirs();
+	file = new java.io.File(file, "settings.propertirs");
+	if(file.isFile()){
+		var br = new java.io.BufferedReader(new java.io.InputStreamReader(java.io.FileInputStream(br)));
+		while((var line = new java.lang.String(br.readLine())) != null){ // for garbage collector
+			var key = "midas-touch-block-id=";
+			if(line.startsWith(key)){
+				blockId = parseInt(line.substring(key.length()));
+				break;
+			}
+		}
+		br.close();
+	}
+	var osw = new java.io.OutputStreamWriter(); // TODO
+}catch(e){
+	print("Awww... An error occurred: " + e.toString());
+}
 }
