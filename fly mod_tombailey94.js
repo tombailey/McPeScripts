@@ -14,9 +14,9 @@ function procCmd(cmd) {
 	else if(cmd == "survival") { //if command was /survival
 		Level.setGameMode(0); //change to survival
 		clientMessage("Gamemode set to survival.");
-	} else if (cmd == "creative") { //if command was /creative
-		Level.setGameMode(1); //change to creative
-		clientMessage("Gamemode set to creative.");
+	} else if (cmd == "fly") { //if command was /fly
+		Level.setGameMode(1); //will be able to fly
+		clientMessage("Will be able to fly.");   
 	}
 	//heal command
 	else if(cmd == "heal") { //if command was /heal
