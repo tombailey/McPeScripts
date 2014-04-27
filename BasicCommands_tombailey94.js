@@ -23,4 +23,7 @@ function procCmd(cmd) {
 		Player.setHealth(20); //heal the player; 20 half hearts or 10 whole hearts
 		clientMessage("Health set to 10 hearts.");
 	}
-}
+}        //give command
+         else if(cmd == "give") { //if command was /give; 20 diamonds 
+                Player.setGive(20)
+                clientMessage("Give Dianond 20")
