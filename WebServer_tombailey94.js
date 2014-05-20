@@ -75,6 +75,6 @@ function newLevel() {
 	thread.start();
 }
 
-function leaveLevel() {
+function leaveGame() {
 	thread.stop();
 }
