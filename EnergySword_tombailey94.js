@@ -1,3 +1,6 @@
+// EnergySword mod by tombailey94
+// version 0.0.2
+
 var ES = 502;
 
 ModPE.overrideTexture("images/items-opaque.png","http://www.tombailey.me/projects/modpe/energysword.png");

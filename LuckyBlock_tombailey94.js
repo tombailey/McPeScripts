@@ -1,18 +1,14 @@
 //LuckyBlock mod by tombailey94; with credit to PlayerInDistress (http://www.minecraftforum.net/topic/2031111-164-lucky-block-drops-items-spawns-mobs-structures-and-more/) and NOAHZ (http://www.minecraftforum.net/topic/2174428-noahzdarkdiaminers-modscripts-new-darkdiamondminers-mods/)
-// version 0.0.3
+// version 0.0.4
 
 var goldId = 41;
 
+ModPE.overrideTexture("images/terrain-atlas.tga","http://www.tombailey.me/projects/modpe/luckyblocks.tga");
+
 function procCmd(cmd) {
-	var command = cmd.split(" ");
-	if(command[0] == "lbtextures" && command.length == 2) {
-		if (command[1] == "on") {
-			ModPE.overrideTexture("images/terrain-atlas.tga","http://www.tombailey.me/projects/modpe/luckyblocks.tga");
-			clientMessage("Restart BlockLauncher, with an active internet connection, to apply this.");
-		} else if (command[1] == "off") {
-			ModPE.resetImages();
-			clientMessage("Restart BlockLauncher to apply this.");
-		}
+	if(cmd == "resettextures") {
+		ModPE.resetImages();
+		clientMessage("Restart BlockLauncher to apply this.");
 	}
 }
 

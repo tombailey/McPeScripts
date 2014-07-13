@@ -1,16 +1,12 @@
 // GrenadeMod by tombailey94
-// version 0.0.2
+// version 0.0.3
+
+ModPE.overrideTexture("images/items-opaque.png","http://www.tombailey.me/projects/modpe/grenades.png");
 
 function procCmd(cmd) {
-	var command = cmd.split(" ");
-	if(command[0] == "gmtextures" && command.length == 2) {
-		if (command[1] == "on") {
-			ModPE.overrideTexture("images/items-opaque.png","http://www.tombailey.me/projects/modpe/grenades.png");
-			clientMessage("Restart BlockLauncher, with an active internet connection, to apply this.");
-		} else if (command[1] == "off") {
-			ModPE.resetImages();
-			clientMessage("Restart BlockLauncher to apply this.");
-		}
+	if(cmd == "resettextures") {
+		ModPE.resetImages();
+		clientMessage("Restart BlockLauncher to apply this.");
 	}
 }
 
