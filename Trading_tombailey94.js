@@ -1,5 +1,5 @@
 // Trading mod by tombailey94; trades are *mostly* (lower values for count are used; e.g. 2 emeralds for leather cap not 2-3 emeralds and, also, trades involving items that are not in Pocket Edition are omitted)  according to http://hydra-media.cursecdn.com/minecraft.gamepedia.com/1/1e/Trading-Chart.png
-// version 0.0.2 (butcher and farmer implemented, trades for blacksmith, librarian and priest still to go)
+// version 0.0.3 (butcher and farmer implemented, trades for blacksmith, librarian and priest still to go)
 
 var imgview;
 var ctx;
@@ -28,7 +28,8 @@ function leaveGame() { //exit world
 
 function attackHook(attacker, victim) {
 	if (Entity.getEntityTypeId(victim) == 15) { //player attacked a villager
-        Entity.setHealth(victim, Entity.getHealth(victim)+1); //restore health back to normal (presumes player hit villager with empty hand and not sword, etc)
+        preventDefault(); //thanks to PEModder from the Minecraft forums for reminding me that preventDefault(); exists (http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2140815-trading-mod-android-only-due-to-ui#c13)
+		//Entity.setHealth(victim, Entity.getHealth(victim)+1); //restore health back to normal (presumes player hit villager with empty hand and not sword, etc)
 		showTradeGui();
     }
 }
@@ -57,8 +58,7 @@ function showTradeGui(){
 				tradeButton.setOnClickListener(new android.view.View.OnClickListener() {
 					onClick: function(v) {
 						if (Level.getGameMode() == 1 || invContains(trades[rnd][0][1], trades[rnd][0][2])) { //if the player is in creative mode or has enough of the required item to trade
-							var deduct = invDeduct(trades[rnd][0][1], trades[rnd][0][2]);
-							print(deduct);
+							invDeduct(trades[rnd][0][1], trades[rnd][0][2]);
 							Player.addItemInventory(trades[rnd][1][1], trades[rnd][1][2], 0);
 							print("Trade complete!");
 						} else {
