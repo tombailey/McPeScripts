@@ -1,11 +1,37 @@
 // Trading mod by tombailey94; trades are *mostly* (lower values for count are used; e.g. 2 emeralds for leather cap not 2-3 emeralds and, also, trades involving items that are not in Pocket Edition are omitted)  according to http://hydra-media.cursecdn.com/minecraft.gamepedia.com/1/1e/Trading-Chart.png
-// version 0.0.3 (butcher and farmer implemented, trades for blacksmith, librarian and priest still to go)
+// version 0.0.4 (butcher and farmer implemented, trades for blacksmith, librarian and priest still to go)
 
 var imgview;
 var ctx;
 var simpleGui;
+var simpleGuiButton;
 
-var trades = [[["Emerald", 388, 1],["Steak", 364, 6]],[["Emerald", 388, 1],["Cooked Porkchop", 320, 6]],[["Emerald", 388, 2],["Leather Cap", 298, 1]],[["Emerald", 388, 4],["Leather Tunic", 299, 1]],[["Emerald", 388, 2],["Leather Pants", 300, 1]],[["Emerald", 388, 2],["Leather Boots", 301, 1]],[["Emerald", 388, 6],["Saddle", 329, 1]],[["Raw Beef", 363, 14],["Emerald", 388, 1]],[["Raw Porkchop", 319, 14],["Emerald", 388, 1]],[["Coal", 263, 16],["Emerald", 388, 1]],[["Gold Ingot", 266, 8],["Emerald", 388, 1]],[["Emerald", 388, 1],["Apple", 260, 5]],[["Emerald", 388, 1],["Bread", 297, 3]],[["Emerald", 388, 1],["Cooked Chicken", 366, 7]],[["Emerald", 388, 1],["Cookies", 357, 1]],[["Emerald", 388, 1],["Melon", 360, 5]],[["Emerald", 388, 1],["Arrow", 262, 9]],[["Emerald", 388, 1],["Flint and Steel", 259, 1]],[["Emerald", 388, 3],["Shears", 359, 1],[["Emerald", 388, 3],["Flint", 318, 4]],[["Raw Chicken", 365, 14],["Emerald", 388, 1]],[["Wheat", 296, 18],["Emerald", 388, 1]],[["Wool", 35, 14],["Emerald", 388, 1]],[["Gold Ignot", 266, 8],["Emerald", 388, 1]]]];
+var trades = [
+	[["Emerald", 388, 1],["Steak", 364, 6]],
+	[["Emerald", 388, 1],["Cooked Porkchop", 320, 6]],
+	[["Emerald", 388, 2],["Leather Cap", 298, 1]],
+	[["Emerald", 388, 4],["Leather Tunic", 299, 1]],
+	[["Emerald", 388, 2],["Leather Pants", 300, 1]],
+	[["Emerald", 388, 2],["Leather Boots", 301, 1]],
+	[["Emerald", 388, 6],["Saddle", 329, 1]],
+	[["Raw Beef", 363, 14],["Emerald", 388, 1]],
+	[["Raw Porkchop", 319, 14],["Emerald", 388, 1]],
+	[["Coal", 263, 16],["Emerald", 388, 1]],
+	[["Gold Ingot", 266, 8],["Emerald", 388, 1]],
+	[["Emerald", 388, 1],["Apple", 260, 5]],
+	[["Emerald", 388, 1],["Bread", 297, 3]],
+	[["Emerald", 388, 1],["Cooked Chicken", 366, 7]],
+	[["Emerald", 388, 1],["Cookies", 357, 1]],
+	[["Emerald", 388, 1],["Melon", 360, 5]],
+	[["Emerald", 388, 1],["Arrow", 262, 9]],
+	[["Emerald", 388, 1],["Flint and Steel", 259, 1]],
+	[["Emerald", 388, 3],["Shears", 359, 1]],
+	[["Emerald", 388, 3],["Flint", 318, 4]],
+	[["Raw Chicken", 365, 14],["Emerald", 388, 1]],
+	[["Wheat", 296, 18],["Emerald", 388, 1]],
+	[["Wool", 35, 14],["Emerald", 388, 1]],
+	[["Gold Ignot", 266, 8],["Emerald", 388, 1]]
+];
 
 function newLevel() { //load world	
 	ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
@@ -14,30 +40,26 @@ function newLevel() { //load world
 function leaveGame() { //exit world
 	if(ctx!=null) {
 		ctx.runOnUiThread(new java.lang.Runnable({ run: function() {
-			try{
+			try {
 				if(simpleGui != null) {
 					simpleGui.dismiss();
 					simpleGui = null;
 				}
-			}catch(err){
+				if(simpleGuiButton != null) {
+					simpleGuiButton.dismiss();
+					simpleGuiButton = null;
+				}
+			} catch (err){
 				print("Error: " + err);
 			}
 		}}));
 	}
 }
 
-function attackHook(attacker, victim) {
-	if (Entity.getEntityTypeId(victim) == 15) { //player attacked a villager
-        preventDefault(); //thanks to PEModder from the Minecraft forums for reminding me that preventDefault(); exists (http://www.minecraftforum.net/forums/minecraft-pocket-edition/mcpe-mods-tools/2140815-trading-mod-android-only-due-to-ui#c13)
-		//Entity.setHealth(victim, Entity.getHealth(victim)+1); //restore health back to normal (presumes player hit villager with empty hand and not sword, etc)
-		showTradeGui();
-    }
-}
-
 function showTradeGui(){
 	if (simpleGui == null) { //don't allow multiple simpleGuis to be opened
 		ctx.runOnUiThread(new java.lang.Runnable({ run: function() {
-			try{
+			try {
 				simpleGui = new android.widget.PopupWindow();
 				var layout = new android.widget.LinearLayout(ctx);
 				layout.setBackgroundColor(android.graphics.Color.GRAY);
@@ -87,7 +109,7 @@ function showTradeGui(){
 
 				simpleGui.setContentView(layout);
 				simpleGui.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.CENTER, 0, 0);
-			}catch(err){
+			} catch (err){
 				print("Error: "+err);
 			}
 		} }));
@@ -124,4 +146,46 @@ function invDeduct(itemId, count) {
 	}
 	
 	return didDeduct;
+}
+
+function modTick() {
+	if (Entity.getEntityTypeId(Player.getPointedEntity()) == 15) { //player is looking at a villager
+		if (simpleGui == null && simpleGuiButton == null) { //if gui isn't open
+			ctx.runOnUiThread(new java.lang.Runnable({ run: function() {
+				try {
+					simpleGuiButton = new android.widget.PopupWindow();
+
+					var layout = new android.widget.LinearLayout(ctx);
+						
+					var tradeButton = new android.widget.Button(ctx);
+					tradeButton.setText("Trade");
+					tradeButton.setBackgroundColor(android.graphics.Color.GRAY);
+					tradeButton.setOnClickListener(new android.view.View.OnClickListener() {
+						onClick: function(v) {
+							showTradeGui();
+							simpleGuiButton.dismiss();
+							simpleGuiButton = null;
+						}
+					});
+					
+					layout.addView(tradeButton);
+					
+					simpleGuiButton.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+					simpleGuiButton.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+
+					simpleGuiButton.setContentView(layout);
+					simpleGuiButton.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.CENTER||android.view.Gravity.BOTTOM, 0, 300);
+				} catch (err){
+					//print("Error: "+err); //modTick causes a spam of error messages 
+				}
+			} }));
+		}
+	} else {
+		if (simpleGuiButton != null) {
+			ctx.runOnUiThread(new java.lang.Runnable({ run: function() {
+				simpleGuiButton.dismiss();
+				simpleGuiButton = null;
+			}}));
+		}
+	}
 }
