@@ -143,7 +143,8 @@ function destroyBlock(x, y, z, side) {
 				setTile(playerX, playerY, playerZ+2, 24);
 				setTile(playerX, playerY, playerZ-2, 24);
 				
-				setTile(playerX+2, playerY-1, playerZ-2, 24);
+		
+		setTile(playerX+2, playerY-1, playerZ-2, 24);
 				setTile(playerX-2, playerY-1, playerZ+2, 24);
 				setTile(playerX-2, playerY-1, playerZ-2, 24);
 				setTile(playerX+2, playerY-1, playerZ+2, 24);
