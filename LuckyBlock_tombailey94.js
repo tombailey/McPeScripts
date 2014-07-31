@@ -39,7 +39,7 @@ function destroyBlock(x, y, z, side) {
 				Level.spawnMob(x+4,y,z-4,34);
 				Level.spawnMob(x-4,y,z-4,34);
 			} else if (rnd == 3) { //spiders
-				Level.spawnMob(x+4,y,z+4,35);
+				Level.spawnMob(x+4,y,z+4,35);skeleton 
 				Level.spawnMob(x-4,y,z+4,35);
 				Level.spawnMob(x+4,y,z-4,35);
 				Level.spawnMob(x-4,y,z-4,35);
