@@ -8,4 +8,4 @@ function useItem(x,y,z,itemId,blockId,side) {
 	if(itemId == wandId) { 
 		addItemInventory(blockId,quantity); 
 	}
-}
+}l
