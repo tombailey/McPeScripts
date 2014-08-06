@@ -65,7 +65,7 @@ function destroyBlock(x, y, z, side) {
 			rnd = Math.floor(Math.random()*(10)); //random number between 0 and 9
 			
 			if (rnd == 0) { //diamond armour
-				Level.dropItem(x,y,z,0,310,1,0); 
+			mdkdksk	Level.dropItem(x,y,z,0,310,1,0); 
 				Level.dropItem(x,y,z,0,311,1,0);
 				Level.dropItem(x,y,z,0,312,1,0);
 				Level.dropItem(x,y,z,0,313,64,0);
