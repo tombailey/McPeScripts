@@ -31,6 +31,9 @@ var trades = [
 	[["Wheat", 296, 18],["Emerald", 388, 1]],
 	[["Wool", 35, 14],["Emerald", 388, 1]],
 	[["Gold Ignot", 266, 8],["Emerald", 388, 1]]
+	[["Diamond",266,8],["Emerald",388,2]]
+	
+	]]
 ];
 
 function newLevel() { //load world	
