@@ -28,7 +28,7 @@ function destroyBlock(x, y, z, side) {
 				Level.spawnMob(x-4,y,z+4,33);
 				Level.spawnMob(x+4,y,z-4,33);
 				Level.spawnMob(x-4,y,z-4,33);
-			} else if (rnd == 1) { //zombie pigmen
+			} else if (rnd == 1) { //creeper
 				Level.spawnMob(x+4,y,z+4,32);
 				Level.spawnMob(x-4,y,z+4,32);
 				Level.spawnMob(x+4,y,z-4,32);
