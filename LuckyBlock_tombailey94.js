@@ -101,7 +101,7 @@ function destroyBlock(x, y, z, side) {
 				Level.dropItem(x,y,z,0,266,Math.floor(Math.random()*(3)+1),0); //drop anywhere from 1 to 3 diamonds
 			}
 			
-		} else {
+		} else 
 			rnd = Math.floor(Math.random()*(3)); //random number between 0 and 2
 			
 			var playerX = getPlayerX();
