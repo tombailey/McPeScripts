@@ -16,7 +16,7 @@ var trades = [
 	[["Emerald", 388, 6],["Saddle", 329, 1]],
 	[["Raw Beef", 363, 14],["Emerald", 388, 1]],
 	[["Raw Porkchop", 319, 14],["Emerald", 388, 1]],
-	[["Coal", 263, 16],["Emerald", 388, 1]],
+	[["Coal", 263, 1],["Diamond", 264, 25]],
 	[["Gold Ingot", 266, 8],["Emerald", 388, 1]],
 	[["Emerald", 388, 1],["Apple", 260, 5]],
 	[["Emerald", 388, 1],["Bread", 297, 3]],
