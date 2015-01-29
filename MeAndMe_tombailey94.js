@@ -5,7 +5,7 @@ var messages = ["Ouch dude!","Wow... stop that we are the same bro.","I am going
 
 function procCmd(cmd) {
 	if (cmd == "clone") {
-		me = Level.spawnMob(Player.getX(), Player.getY(), Player.getZ(), 11, "mob/char.png");
+		me = Level.spawnMob(Player.getX(), Player.getY(), Player.getZ(), 15, "mob/char.png");
 		Entity.setRenderType(me, 3);
 		Entity.setNameTag(me, "me");
 	}
