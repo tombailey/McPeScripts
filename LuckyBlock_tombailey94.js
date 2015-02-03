@@ -1,5 +1,5 @@
 //LuckyBlock mod by tombailey94; with credit to PlayerInDistress (http://www.minecraftforum.net/topic/2031111-164-lucky-block-drops-items-spawns-mobs-structures-and-more/) and NOAHZ (http://www.minecraftforum.net/topic/2174428-noahzdarkdiaminers-modscripts-new-darkdiamondminers-mods/)
-// version 0.0.5
+// version 0.0.6
 
 var goldId = 41;
 
@@ -8,11 +8,9 @@ function destroyBlock(x, y, z, side) {
 	
 	if (blockId == goldId) {
 		var rnd = random(0, 9);
-
+		
 		if (rnd == 0 || rnd == 1) {
 			rnd = random(0, 4);
-			
-			//Level.setTime(8280); //set to night for mobs not to burn (doesn't seem to work :S)
 			
 			var mobs = [];
 			
@@ -83,13 +81,13 @@ function destroyBlock(x, y, z, side) {
 			}
 
 		} else {
-			rnd = random(0,3); //random number between 0 and 2
+			rnd = random(0,4);
 			
 			var playerX = Player.getX();
 			var playerY = Player.getY();
 			var playerZ = Player.getZ();
 			
-			if (rnd == 0) { //creates a jail type structure (with iron bars) and spawns falling sand above the player's head
+			if (rnd == 0) { //creates a jail type structure (with iron bars) and spawns flowing lava above the player's head
 				
 				var xs = [playerX-1, playerX, playerX+1];
 				var zs = [playerZ-1, playerZ, playerZ+1];
@@ -105,7 +103,7 @@ function destroyBlock(x, y, z, side) {
 					}
 				}
 				
-				Level.setTile(playerX, playerY+2, playerZ, 11); //dat lava doe
+				Level.setTile(playerX, playerY+2, playerZ, 10); //dat lava doe
 				
 				clientMessage("Look up!");
 			
@@ -150,6 +148,16 @@ function destroyBlock(x, y, z, side) {
 					}
 				}
 
+			} else if (rnd == 3) { //hole to the void (very evil :P) 
+				
+				for (var i = playerY; i >= 0; i--) {
+					for (var j = playerX-2; j < playerX+3; j++) {
+						for (var k = playerZ-2; k < playerZ+3; k++) {
+							Level.setTile(j, i, k, 0); //air
+						}
+					}
+				}
+				
 			} else { //primed TnT
 				Level.spawnMob(x+1,y,z,65);
 				Level.spawnMob(x,y,z+1,65);
