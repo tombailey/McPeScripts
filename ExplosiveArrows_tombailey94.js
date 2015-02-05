@@ -22,6 +22,8 @@ function modTick() {
 		if(Entity.getVelX(ent) == 0 && Entity.getVelY(ent) == 0 && Entity.getVelZ(ent) == 0){
 		
 			Level.explode(Entity.getX(ent),Entity.getY(ent),Entity.getZ(ent),5);
+			Entity.remove(ent);
+			ent = null;
 		}
 		
 	}
