@@ -1,10 +1,6 @@
 // Ultra Hard Core Pocket Edition by tombailey94
 // version 0.0.1
 
-function procCmd(cmd) {
-	
-}
-
 function entityAddedHook(entity) {
 	var id = Entity.getEntityTypeId(entity);
 	if (id == 64) { 
