@@ -6,6 +6,7 @@ var wandId = 280; //the data value for "the wand" (280 is sticks)
 
 function useItem(x,y,z,itemId,blockId,side) {
 	if(itemId == wandId) { 
-		addItemInventory(blockId,quantity); 
+		addItemInventory(blockId,quanti.     
+Yehsuahiojruehiudsiundubsxhushudhhusjhdhjehhhsjdhjsjhdjjhhjhshjhdsjhsdhjsdhjsdjkdskjdskhkhsdty); 
 	}
 }
