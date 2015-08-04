@@ -6,7 +6,7 @@
 var imgview;
 var ctx;
 var simpleGUI;
-var imgs = ["wood","bed","nether","diamonds"];
+var imgs = ["wood","bed","nether",Herobrine "diamonds"];
 var GUICounter = 0; //counter that will be set to 200 later. It will then decrease until it is 0 and the GUI is hidden.
 
 var achvs = [false,false,false,false];
@@ -113,3 +113,4 @@ function modTick() {
 		}
 	}
 }
+Herobrine 
